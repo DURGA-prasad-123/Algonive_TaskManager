@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div>
+                <h1>Task Manager Pro</h1>
+                <p>Stay organized and productive</p>
+            </div>
+            <button class="btn" onclick="toggleForm()">
+                <span id="formToggleText">➕ New Task</span>
+            </button>
+        </div>
+
+        <!-- Notification -->
+        <div id="notification" class="notification hidden"></div>
+
+        <!-- Task Form -->
+        <div id="taskForm" class="task-form hidden">
+            <h2 id="formTitle">Create New Task</h2>
+            
+            <div class="form-group">
+                <label>Task Title *</label>
+                <input type="text" id="taskTitle" placeholder="Enter task title...">
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="taskDescription" placeholder="Add details about this task..."></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Due Date</label>
+                    <input type="date" id="taskDate">
+                </div>
+                <div class="form-group">
+                    <label>Due Time</label>
+                    <input type="time" id="taskTime">
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn" onclick="saveTask()">
+                    <span id="saveButtonText">Add Task</span>
+                </button>
+                <button class="btn btn-secondary" onclick="cancelForm()">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterTasks('all')">
+                All Tasks (<span id="countAll">0</span>)
+            </button>
+            <button class="filter-btn" onclick="filterTasks('active')">
+                Active (<span id="countActive">0</span>)
+            </button>
+            <button class="filter-btn" onclick="filterTasks('completed')">
+                Completed (<span id="countCompleted">0</span>)
+            </button>
+            <button class="filter-btn" onclick="filterTasks('today')">
+                Today
+            </button>
+        </div>
+
+        <!-- Task List -->
+        <div id="taskList" class="task-list"></div>
+
+        <!-- Statistics -->
+        <div id="stats" class="stats hidden">
+            <div class="stat-item">
+                <div class="stat-number" id="statTotal">0</div>
+                <div class="stat-label">Total Tasks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="statActive">0</div>
+                <div class="stat-label">Active</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="statCompleted">0</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="statProgress">0%</div>
+                <div class="stat-label">Progress</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
